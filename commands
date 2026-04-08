@@ -21,4 +21,6 @@ ansible app -i inventory.inf -m shell -a 'apt update && apt install -y nginx && 
 # As a root user
 ansible app -i inventory.inf -m shell -a 'apt update && apt install -y nginx && systemctl start nginx && systemctl enable nginx' --become
 
+# Creating ansible role using ansible galaxy
+ansible-galaxy role init dictionary
 
