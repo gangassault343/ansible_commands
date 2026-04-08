@@ -12,3 +12,6 @@ Update PasswordAuthentication yes
 Restart SSH -> sudo systemctl restart ssh
 ssh-keygen -t rsa -b 4096
 ssh-copy-id ubuntu@65.0.26.40
+
+#Command for playbook execution
+ansible-playbook -i inventory.inf ansible-playbook.yaml
