@@ -15,3 +15,10 @@ ssh-copy-id ubuntu@65.0.26.40
 
 #Command for playbook execution
 ansible-playbook -i inventory.inf ansible-playbook.yaml
+
+#One-line command for installation of Nginx
+ansible app -i inventory.inf -m shell -a 'apt update && apt install -y nginx && systemctl start nginx && systemctl enable nginx'
+# As a root user
+ansible app -i inventory.inf -m shell -a 'apt update && apt install -y nginx && systemctl start nginx && systemctl enable nginx' --become
+
+
