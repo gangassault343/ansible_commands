@@ -1,3 +1,5 @@
-ubuntu@65.0.26.40 ansible_user=ubuntu ansible_ssh_private_key_file=/home/ubuntu/kubernetes.pem
-ubuntu@43.205.235.62 ansible_user=ubuntu ansible_ssh_private_key_file=/home/ubuntu/kubernetes.pem
-~                                                                                                   
+[app]
+65.0.26.40 ansible_user=ubuntu ansible_ssh_private_key_file=/home/ubuntu/kubernetes.pem ansible_python_interpreter=/usr/bin/python3.12
+[db]
+43.205.235.62 ansible_user=ubuntu ansible_ssh_private_key_file=/home/ubuntu/kubernetes.pem ansible_python_interpreter=/usr/bin/python3.12
+~
