@@ -24,3 +24,6 @@ ansible app -i inventory.inf -m shell -a 'apt update && apt install -y nginx && 
 # Creating ansible role using ansible galaxy
 ansible-galaxy role init dictionary
 
+# Import your github code to ansible-galaxy
+ls ~/.ansible/roles
+ansible-galaxy import gangassault343 <project-name> -- token <create token in ansible galaxy>
