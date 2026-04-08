@@ -1,0 +1,19 @@
+---
+- name: Install apache httpd
+  ansible.builtin.apt:
+    name: apache2
+    state: present
+    update_cache: yes
+
+- name: Copy file with Owner and permissions
+  ansible.builtin.copy:
+    src: 1.txt
+    dest: /var/www/html/1.txt
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Sync only changed files
+  ansible.builtin.synchronize:
+    src: files/
+    dest: /var/www/html/
