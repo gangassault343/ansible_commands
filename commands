@@ -39,3 +39,6 @@ ansible-vault create group_vars/all/pass.yml --vault-password-file vault.pass (a
 #Create EC2 instance
 ansible-playbook -i inventory.inf ec2-create.yaml --vault-password-file vault.pass
 
+# IF Linux-Amazon EC2 dosent recognise then use this command for gathering facts
+ansible-playbook -i inventory.inf ec2_stop1.yaml -e ansible_python_interpreter=/usr/bin/python3 --vault-password-file vault.pass
+
