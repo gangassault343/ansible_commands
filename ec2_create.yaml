@@ -1,14 +1,15 @@
 ---
-- hosts:  localhost
+- hosts: localhost
   connection: local
-  gather_facts: no
+
   tasks:
     - name: start an instance with a public IP address
       amazon.aws.ec2_instance:
-        name: "public-compute-instance"
+        name: "{{ item.name }}"
         instance_type: t2.micro
-        security_group: default
-        image_id: ami-05d2d839d4f73aafb
+        security_groups: default
+        key_name: "kubernetes"
+        image_id: "{{ item.image }}"
         aws_access_key: "{{ aws_access_key }}"
         aws_secret_key: "{{ aws_secret_key }}"
         region: ap-south-1
@@ -17,3 +18,8 @@
         state: running
         network:
           assign_public_ip: true
+      loop:
+        - { image: "ami-048f4445314bcaa09", name: "Linux-instance" }
+        - { image: "ami-05d2d839d4f73aafb", name: "Ubuntu-instance-1" }
+        - { image: "ami-05d2d839d4f73aafb", name: "Ubuntu-instance-2" }
+~
