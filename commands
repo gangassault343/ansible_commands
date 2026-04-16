@@ -7,9 +7,11 @@ ssh-copy-id: This is the command used to copy your public key to a remote machin
 ubuntu@: This is the username (ubuntu) and the IP address of the remote server you want to access.
 
 Using Password
-Go to the file /etc/ssh/sshd_config.d/60-cloudimg-settings.conf
-Update PasswordAuthentication yes
-Restart SSH -> sudo systemctl restart ssh
+sudo vi /etc/ssh/sshd_config.d/60-cloudimg-settings.conf
+PasswordAuthentication yes
+sudo systemctl restart ssh    //That's it
+
+
 ssh-keygen -t rsa -b 4096
 ssh-copy-id ubuntu@65.0.26.40
 
